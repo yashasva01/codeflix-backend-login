@@ -1,23 +1,27 @@
-const Joi = require('joi')
+const Joi = require('joi');
 
 const userCreationSchema = Joi.object({
-    userName: Joi.string(),
-    password: Joi.string(),
-    role: Joi.string(),
+    name: Joi.string(),
+    userName: Joi.string().required(),
+    password: Joi.string().required(),
+    role: Joi.string().required(),
 })
 
 const userLoginSchema = Joi.object({
-    userName: Joi.string(),
-    password: Joi.string(),
+    userName: Joi.string().required(),
+    password: Joi.string().required(),
 })
 
 const userDeletionSchema = Joi.object({
-    userName: Joi.string(),
-    password: Joi.string(),
+    userName: Joi.string().required(),
+    password: Joi.string().required(),
 })
+
+const authTokenSchema = Joi.object({})
 
 module.exports = {
     userCreationSchema,
     userDeletionSchema,
-    userLoginSchema
+    userLoginSchema,
+    authTokenSchema
 }
